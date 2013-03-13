@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Clouder
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      = form_tag tracks_path, :method => 'get' do
+        %p
+          = text_field_tag :search, params[:search]
+        %p
+          = submit_tag "Give me tunes", :name => nil, :class => "btn btn-success btn-large"
+      = yield

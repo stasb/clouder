@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: clouder_development
+  pool: 5
+  username: belkiii
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: clouder_test
+  pool: 5
+  username: belkiii
+  password:
