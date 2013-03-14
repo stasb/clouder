@@ -1,4 +1,19 @@
-%h1 This is the index
-%p Results go here
+%h1
+  = @track
+  tunes
+%p
+  The search query is
+  %b
+    = @track
+.tracks
+  %br
+  - @tracks.each do |track|
+    %br
+    %iframe#sc-widget{:frameborder => "no", :height => "166", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{track.uri}&show_artwork=true", :width => "100%"}
+    %br
 
-
+:javascript
+  (function(){
+      var widgetIframe = document.getElementById('sc-widget'),
+          widget       = SC.Widget(widgetIframe),
+    }());

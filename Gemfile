@@ -17,11 +17,6 @@ gem 'haml'
 gem 'twitter-bootstrap-rails'
 gem 'sass-rails',   '~> 3.2.3'
 
-gem 'httmultiparty'
-gem 'httparty'
-gem 'crack'
-gem 'multipart'
-gem 'hashie'
 gem 'soundcloud'
 
 # Gems used only for assets and not required

@@ -4,6 +4,7 @@
     %title Clouder
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "api", :src => "https://w.soundcloud.com/player/api.js", :type => "text/javascript"
     = csrf_meta_tags
   %body
     .container

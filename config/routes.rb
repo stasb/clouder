@@ -1,8 +1,8 @@
 Clouder::Application.routes.draw do
 
-  root :to => "tracks#index"
+  root :to => "tracks#new"
 
-  match ':search', :controller => "tracks", :action => "search", :as => "search"
+  # match ':search', :controller => "tracks", :action => "index", :as => "index"
 
   resources :tracks
 
