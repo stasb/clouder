@@ -3,14 +3,20 @@
   %head
     %title Clouder
     = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag "jplayer.blue.monday"
     = javascript_include_tag "application"
     = javascript_include_tag "api", :src => "https://w.soundcloud.com/player/api.js", :type => "text/javascript"
+    = javascript_include_tag "jquery.jplayer.min", :type => "text/javascript"
+    = javascript_include_tag "jplayers", :type => "text/javascript"
     = csrf_meta_tags
   %body
     .container
       = form_tag tracks_path, :method => 'get' do
         %p
-          = text_field_tag :search, params[:search]
+        - if params[:search]
+          = text_field_tag :search, nil, :value => params[:search], :class => "search-box"
+        - else
+          = text_field_tag :search, nil, :placeholder => "enter a genre e.g. dubstep, electro, indie", :class => "search-box"
         %p
           = submit_tag "Give me tunes", :name => nil, :class => "btn btn-success btn-large"
       = yield
