@@ -5,7 +5,8 @@ function js_audioPlayer(file,location){
     $('#jquery_jplayer_' + location).jPlayer({
                     ready: function () {
                             $(this).jPlayer("setMedia", {
-                                    mp3: file
+                                    mp3: file,
+                                    volume: 1
                             });
                     },
                     play: function() { // To avoid both jPlayers playing together.
@@ -20,20 +21,16 @@ function js_audioPlayer(file,location){
                             } else {
                                     $(this).unbind(".jPlayerRepeat").unbind(".jPlayerNext");
                                     $(this).bind($.jPlayer.event.ended + ".jPlayer.jPlayerNext", function() {
-                                            $("#jquery_jplayer_2").jPlayer("play", 0);
+                                            var next_player = location + 1;
+                                            $('#jquery_jplayer_' + next_player).jPlayer("play", 0);
                                     });
                             }
                     },
                     cssSelectorAncestor: "#jp_container_" + location,
-                    swfPath: "../assets/javascripts",
+                    swfPath: "../",
                     supplied: "mp3",
                     wmode: "window",
-                    solution: "flash, html"
             });
 
   });
 };
-
-js_audioPlayer('http://api.soundcloud.com/tracks/82813970/stream?client_id=f837b00cd8d79383183d405b33a8a25d', 1);
-js_audioPlayer('http://api.soundcloud.com/tracks/83415815/stream?client_id=f837b00cd8d79383183d405b33a8a25d', 2);
-js_audioPlayer('http://api.soundcloud.com/tracks/82060013/stream?client_id=f837b00cd8d79383183d405b33a8a25d', 3);

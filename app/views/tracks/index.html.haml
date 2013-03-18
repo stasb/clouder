@@ -9,8 +9,6 @@
   %br
   - @tracks.each do |track|
     %br
-    = track.stream_url
-    %br
     - track_id = (@tracks.index(track) + 1).to_s
     .jp-jplayer{:id => "jquery_jplayer_#{track_id}"}
     .jp-audio{:id => "jp_container_#{track_id}"}
@@ -50,4 +48,18 @@
           To play the media you will need to either update your browser to a recent version or update your
           = succeed "." do
             %a{:href => "http://get.adobe.com/flashplayer/", :target => "_blank"} Flash plugin
+%script{:type => 'text/javascript'}
+  - @tracks.each do |track|
+    - track_id = (@tracks.index(track) + 1).to_s
+    js_audioPlayer('#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d', #{track_id});
+
+
+
+
+
+
+
+
+
+
 
