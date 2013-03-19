@@ -8,10 +8,11 @@
 .tracks
   %br
   %audio{:preload => ""}
+  .currently-playing
   %br
   %ol
     - @tracks.each do |track|
-      %li
-        %a{"data-src" => "#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d", :href => "#"}
-          = track.title
-      %br
+      - if track.stream_url != nil
+        %li
+          %a{"data-src" => "#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d", :href => "#"}
+            = track.title

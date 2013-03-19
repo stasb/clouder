@@ -17,12 +17,20 @@
                   audio.load($('a', next).attr('data-src'));
                   audio.play();
                 }
+
               });
+
+              // show what is currently playing
+
+              // whatever has current class of 'playing', get that link's content
+              // and insert it into a predefined 'currently-playing' div
 
               // Load in the first track
               var audio = a[0];
                   first = $('ol a').attr('data-src');
               $('ol li').first().addClass('playing');
+              var current = $('.playing a').text();
+              $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
               audio.load(first);
 
               // Load in a track on click
@@ -30,6 +38,8 @@
                 e.preventDefault();
                 $(this).addClass('playing').siblings().removeClass('playing');
                 audio.load($('a', this).attr('data-src'));
+                var current = $('.playing a').text();
+                $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
                 audio.play();
               });
               // Keyboard shortcuts
