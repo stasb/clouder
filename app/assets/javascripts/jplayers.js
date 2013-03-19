@@ -30,6 +30,7 @@ function js_audioPlayer(file,location){
                     swfPath: "../",
                     supplied: "mp3",
                     wmode: "window",
+                    volume: 1,
             });
 
   });
