@@ -11,7 +11,7 @@
   .track-info
     .i-track-title
     .i-play-count
-    .i-url
+    .i-time-ago
   .player-controls
     %a{:href => "#", :class => "previous"}
       previous
@@ -35,5 +35,12 @@
               = track.playback_count
             %p{:class => "url"}
               = track.permalink_url
+            - if track.release_day != nil
+              - raw_date = (track.release_day.to_s + "/" + track.release_month.to_s + "/" + track.release_year.to_s)
+              - date = DateTime.strptime(raw_date, '%d/%m/%Y')
+              - timeago = time_ago_in_words(date)
+              %p{:class => "timeago"}
+                = raw_date
+
   %br
   %br

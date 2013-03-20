@@ -28,10 +28,18 @@
               // $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
               var title = $('.playing .track-title').text();
               var count = $('.playing .play-count').text();
+              var time = $('.playing .timeago').text();
               var url = $('.playing .url').text();
-              $('.i-track-title').replaceWith('<div class="i-track-title">' + title + '</div>');
+              $('.i-track-title').replaceWith('<a class="i-track-title" target="_blank" href="' + url + '">' + title + '</a>');
               $('.i-play-count').replaceWith('<div class="i-play-count">' + count + ' plays' + '</div>');
-              $('.i-url').replaceWith('<a class="i-url" target="_blank" href="' + url + '">' + "Link" + '</div>');
+              if (time != '')
+                {
+                $('.i-time-ago').replaceWith('<div class="i-time-ago">' + 'Release date:' + time + '</div>');
+                }
+              else
+                {
+                $('.i-time-ago').replaceWith('<div class="i-time-ago"></div>');
+                }
               audio.load(first);
 
               // Load in a track on click
@@ -55,10 +63,18 @@
                   audio.load($('a', this).attr('data-src'));
                   var title = $('.playing .track-title').text();
                   var count = $('.playing .play-count').text();
+                  var time = $('.playing .timeago').text();
                   var url = $('.playing .url').text();
-                  $('.i-track-title').replaceWith('<div class="i-track-title">' + title + '</div>');
+                  $('.i-track-title').replaceWith('<a class="i-track-title" target="_blank" href="' + url + '">' + title + '</a>');
                   $('.i-play-count').replaceWith('<div class="i-play-count">' + count + ' plays' + '</div>');
-                  $('.i-url').replaceWith('<a class="i-url" target="_blank" href="' + url + '">' + "Link" + '</div>');
+                  if (time != '')
+                    {
+                    $('.i-time-ago').replaceWith('<div class="i-time-ago">' + 'Release date:' + time + '</div>');
+                    }
+                  else
+                    {
+                    $('.i-time-ago').replaceWith('<div class="i-time-ago"></div>');
+                    }
                   audio.play();
                   }
               });
@@ -97,6 +113,8 @@
             });
   %body
     .container
+      .logo
+        %img{:src => '/assets/logo.png'}
       = form_tag tracks_path, :method => 'get' do
         %p
         - if params[:search]
