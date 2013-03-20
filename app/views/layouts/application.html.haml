@@ -26,6 +26,12 @@
               $('.span3').first().addClass('playing');
               // var current = $('.playing a').text();
               // $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
+              var title = $('.playing .track-title').text();
+              var count = $('.playing .play-count').text();
+              var url = $('.playing .url').text();
+              $('.i-track-title').replaceWith('<div class="i-track-title">' + title + '</div>');
+              $('.i-play-count').replaceWith('<div class="i-play-count">' + count + ' plays' + '</div>');
+              $('.i-url').replaceWith('<a class="i-url" target="_blank" href="' + url + '">' + "Link" + '</div>');
               audio.load(first);
 
               // Load in a track on click
@@ -47,8 +53,12 @@
                   $(this).addClass('playing').siblings().removeClass('playing');
                   $(this).addClass('pausable').siblings().removeClass('pausable').removeClass('paused');
                   audio.load($('a', this).attr('data-src'));
-                  // var current = $('.playing a').text();
-                  // $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
+                  var title = $('.playing .track-title').text();
+                  var count = $('.playing .play-count').text();
+                  var url = $('.playing .url').text();
+                  $('.i-track-title').replaceWith('<div class="i-track-title">' + title + '</div>');
+                  $('.i-play-count').replaceWith('<div class="i-play-count">' + count + ' plays' + '</div>');
+                  $('.i-url').replaceWith('<a class="i-url" target="_blank" href="' + url + '">' + "Link" + '</div>');
                   audio.play();
                   }
               });

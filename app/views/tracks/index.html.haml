@@ -8,7 +8,10 @@
 .tracks
   %br
   %audio{:preload => ""}
-  .currently-playing
+  .track-info
+    .i-track-title
+    .i-play-count
+    .i-url
   .player-controls
     %a{:href => "#", :class => "previous"}
       previous
@@ -26,7 +29,11 @@
               %img{:src => "/assets/pause.png", :class => "pauseimage"}
               %img{:src => "/assets/playing.png", :class => "playingimage"}
           .meta-data{:style => "display:none;"}
-            %p
-              Super awesome text everywhere here.
+            %p{:class => "track-title"}
+              = track.title
+            %p{:class => "play-count"}
+              = track.playback_count
+            %p{:class => "url"}
+              = track.permalink_url
   %br
   %br
