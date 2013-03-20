@@ -31,8 +31,14 @@
 // Example:
 // @linkColor: #ff0000;
 
+@gridGutterWidth1200: 5px;
+
 .container {
   padding-top: 50px;
+
+  .span3 {
+    padding-top: 5px;
+  }
 }
 
 .search-box {
@@ -54,5 +60,66 @@
   }
   .scrubber {
     width: 600px;
+  }
+}
+
+.a-box {
+  width: 220px;
+  height: 220px;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+
+  a {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0;
+    padding: 0;
+    display: block;
+  } 
+
+  .playimage {
+    position: absolute;
+    display: none;
+    top: 0;
+  }
+  .pauseimage {
+    position: absolute;
+    display: none;
+    top: 0;
+  }
+
+  .playingimage {
+    position: absolute;
+    display: none;
+    top: 0;
+  }
+}
+
+.pausable {
+  .playingimage {
+    display: block;
+  }
+}
+
+.pausable:hover {
+  .playingimage {
+    display: none;
+  }
+}
+
+.a-box:hover {
+  .playimage {
+    display: block;
+  }
+}
+
+.pausable:hover {
+  .pauseimage {
+    display: block;
+  }
+  .playimage {
+    display: none;
   }
 }

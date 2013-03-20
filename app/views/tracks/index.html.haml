@@ -15,10 +15,18 @@
     %a{:href => "#", :class => "next"}
       next
   %br
-  %ol
+  .row
     - @tracks.each do |track|
-      - if track.stream_url != nil
-        %li
-          %a{"data-src" => "#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d", :href => "#"}
-            = track.title
-        = track.permalink_url
+      - if (track.artwork_url != nil) && (track.stream_url != nil)
+        .span3
+          .a-box
+            %a{"data-src" => "#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d", :href => "#"}
+              %img{:src => "#{track.artwork_url.sub("large","t300x300")}"}
+              %img{:src => "/assets/play.png", :class => "playimage"}
+              %img{:src => "/assets/pause.png", :class => "pauseimage"}
+              %img{:src => "/assets/playing.png", :class => "playingimage"}
+          .meta-data{:style => "display:none;"}
+            %p
+              Super awesome text everywhere here.
+  %br
+  %br
