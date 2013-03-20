@@ -20,11 +20,6 @@
 
               });
 
-              // show what is currently playing
-
-              // whatever has current class of 'playing', get that link's content
-              // and insert it into a predefined 'currently-playing' div
-
               // Load in the first track
               var audio = a[0];
                   first = $('ol a').attr('data-src');
@@ -42,6 +37,19 @@
                 $('.currently-playing').replaceWith('<div class="currently-playing">' + current + '</div>');
                 audio.play();
               });
+
+              // Next/previous buttons
+
+              $('.next').click(function(e) {
+                var next = $('li.playing').next();
+                next.click();
+              });
+
+              $('.previous').click(function(e) {
+                var prev = $('li.playing').prev();
+                prev.click();
+              });
+
               // Keyboard shortcuts
               $(document).keydown(function(e) {
                 var unicode = e.charCode ? e.charCode : e.keyCode;
