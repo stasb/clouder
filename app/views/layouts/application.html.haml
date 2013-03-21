@@ -16,6 +16,20 @@
                   next.addClass('playing').siblings().removeClass('playing');
                   audio.load($('a', next).attr('data-src'));
                   audio.play();
+                  var title = $('.playing .track-title').text();
+                  var count = $('.playing .play-count').text();
+                  var time = $('.playing .timeago').text();
+                  var url = $('.playing .url').text();
+                  $('.i-track-title').replaceWith('<a class="i-track-title" target="_blank" href="' + url + '">' + title + '</a>');
+                  $('.i-play-count').replaceWith('<div class="i-play-count">' + count + ' plays' + '</div>');
+                  if (time != '')
+                    {
+                    $('.i-time-ago').replaceWith('<div class="i-time-ago">' + 'Release date:' + time + '</div>');
+                    }
+                  else
+                    {
+                    $('.i-time-ago').replaceWith('<div class="i-time-ago"></div>');
+                    }
                 },
                 imageLocation: '/assets/player-graphics.gif',
                 swfLocation: '/assets/audiojs.swf',
