@@ -1,23 +1,20 @@
-%h1
-  = @track
-  tunes
-%p
-  The search query is
-  %b
-    = @track
 .tracks
-  %br
   %audio{:preload => ""}
-  .track-info
-    .i-track-title
-    .i-play-count
-    .i-time-ago
-  .player-controls
-    %a{:href => "#", :class => "previous"}
-      previous
-    %a{:href => "#", :class => "next"}
-      next
-  %br
+  .playerbar-2.row
+    .t-title.span10
+      .i-track-title
+      .i-count-container
+        .i-play-count
+      .i-time-container
+        .i-time-ago
+    .player-controls.span2
+      %a{:href => "#", :class => "previous"}
+        %img{:src => "/assets/previous.png"}
+      %a{:href => "#", :class => "next"}
+        %img{:src => "/assets/next.png"}
+  .query
+    %h2
+      Search results for "#{@track}"
   .row
     - @tracks.each do |track|
       - if (track.artwork_url != nil) && (track.stream_url != nil)
@@ -30,7 +27,7 @@
               %img{:src => "/assets/playing.png", :class => "playingimage"}
           .meta-data{:style => "display:none;"}
             %p{:class => "track-title"}
-              = track.title
+              = truncate(track.title, :length => 60)
             %p{:class => "play-count"}
               = track.playback_count
             %p{:class => "url"}

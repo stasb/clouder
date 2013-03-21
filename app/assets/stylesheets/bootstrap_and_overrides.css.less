@@ -40,11 +40,6 @@
   }
 }
 
-.search-box {
-  width: 300px;
-  font-size: 30px;
-}
-
 .audiojs {
   width: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -58,7 +53,11 @@
     border-radius: 0px;
   }
   .scrubber {
-    width: 600px;
+    width: 720px;
+  }
+  .loaded {
+    background-image: none;
+    background: #272727;
   }
 }
 
@@ -120,5 +119,113 @@
   }
   .playimage {
     display: none;
+  }
+}
+
+.playerbar-2 {
+
+  background-color: #c2a5f1;
+  height: 35px;
+  margin: 0px 0px 10px 0px;
+  font-weight: bold;
+  color: black;
+
+  .t-title {
+    display: block;
+    height: 35px;
+    margin: 0px 15px 0px 15px
+  }
+
+  .t-title a {
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: 8px;
+    float: left;
+  }
+  .i-count-container {
+    display: block;
+    position: relative;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #a989da;
+    height: 35px;
+    float: left;
+  }
+
+  .i-count-container .i-play-count {
+    margin-top: 8px;
+  }
+  .i-time-container {
+    display: block;
+    position: relative;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #a989da;
+    height: 35px;
+    float: left;
+  }
+
+  .i-time-container .i-time-ago {
+    margin-top: 8px;
+}
+  .player-controls {
+    display: block;
+    margin-top: 7px;
+    width: 100px;
+    float: right;
+  }
+  .player-controls a {
+    margin-right: 15px;
+    text-decoration: none;
+  }
+}
+
+.top-bar {
+  background-color: #accbf1;
+  height: 55px;
+  margin: 0px 0px 15px 0px;
+  font-weight: bold;
+  color: black;
+
+  .logo {
+    display: block;
+    float: left;
+    margin-left: 35px;
+    margin-top: 11px;
+  }
+
+  .search-area {
+    float: left;
+    display: block;
+  }
+  
+  .search-box {
+    float: left;
+    width: 320px;
+    margin: 2px 15px 0px 0px;
+  }
+  .search-button {
+    float: left;
+    margin: 2px 0px 0px 0px
+  }
+  .powered {
+    float: left;
+    display: block;
+    width: 100px;
+  }
+  .powered img {
+    margin: 9px 0px 0px 0px;
+    position: relative;
+    left: -7px;
+  }
+}
+
+.query {
+  background-color: #f9f9f9;
+  padding: 4px 0px 4px 0px;
+  margin: -2px 0px 3px 0px;
+  h2 {
+    margin-left: 20px;
   }
 }

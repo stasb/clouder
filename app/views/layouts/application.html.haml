@@ -18,8 +18,8 @@
                   audio.play();
                 },
                 imageLocation: '/assets/player-graphics.gif',
-                swfLocation: '/assets/audiojs.swf'
-
+                swfLocation: '/assets/audiojs.swf',
+                setVolume: '100'
               });
 
               // Load in the first track
@@ -115,14 +115,19 @@
             });
   %body
     .container
-      .logo
-        %img{:src => '/assets/logo.png'}
-      = form_tag tracks_path, :method => 'get' do
-        %p
-        - if params[:search]
-          = text_field_tag :search, nil, :value => params[:search], :class => "search-box"
-        - else
-          = text_field_tag :search, nil, :placeholder => "enter a genre e.g. dubstep, electro, indie", :class => "search-box"
-        %p
-          = submit_tag "Give me tunes", :name => nil, :class => "btn btn-success btn-large"
+      .top-bar.row
+        .logo.span4
+          %img{:src => '/assets/logo-small.png'}
+        .search-area.span6
+          = form_tag tracks_path, :method => 'get' do
+            %p
+            - if params[:search]
+              = text_field_tag :search, nil, :value => params[:search], :class => "search-box"
+            - else
+              = text_field_tag :search, nil, :placeholder => "enter a genre e.g. dubstep, electro", :class => "search-box"
+            %p
+              = submit_tag "Search", :name => nil, :class => "btn btn-success search-button"
+        .powered.span2
+          %a{:href => "http://soundcloud.com", :target => "_blank"}
+            %img{:src => "/assets/powered.png"}
       = yield
