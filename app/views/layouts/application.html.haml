@@ -16,7 +16,9 @@
                   next.addClass('playing').siblings().removeClass('playing');
                   audio.load($('a', next).attr('data-src'));
                   audio.play();
-                }
+                },
+                imageLocation: '/assets/player-graphics.gif',
+                swfLocation: '/assets/audiojs.swf'
 
               });
 
