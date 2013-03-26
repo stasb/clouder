@@ -35,6 +35,10 @@
 @sansFontFamily: 'Titillium Web', sans-serif;
 @baseFontSize: 15px;
 
+body {
+  background-image: url('brillant.png');
+}
+
 .container {
 
   .span3 {
@@ -79,11 +83,34 @@
     display: block;
   } 
 
+  .image-content {
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    color: black;
+    padding: 0px 5px 0px 5px;
+    text-align: left;
+}
+  .title-thumb {
+    margin: 0;
+    background: white;
+    display: inline;
+  }
+
+  .title-thumb span {
+    color: #757575;
+  }
+
+  .title-thumb:hover {
+    text-decoration: none;
+  }
+
   .playimage {
     position: absolute;
     display: none;
     top: 0;
   }
+
   .pauseimage {
     position: absolute;
     display: none;
@@ -183,6 +210,7 @@
   }
 }
 
+
 .top-bar {
   background-color: #accbf1;
   height: 55px;
@@ -193,19 +221,20 @@
   .logo {
     display: block;
     float: left;
-    margin-left: 35px;
     margin-top: 11px;
+    margin-left: 30px;
   }
 
   .search-area {
     float: left;
     display: block;
   }
-  
+
   .search-box {
     float: left;
     width: 320px;
     margin: 2px 15px 0px 0px;
+    line-height: normal !important;
   }
   .search-button {
     float: left;
@@ -221,13 +250,140 @@
     position: relative;
     left: -7px;
   }
+
+}
+
+.front-page {
+  margin-top: 30%;
+  background: none;
+  height: auto;
+  font-weight: bold;
+  color: black;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .logo {
+    float: none;
+    height: 83px;
+    width: 387px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: -10px;
+  }
+
+  .search-area {
+    float: none;
+    width: 580px;
+  }
+
+  .search-box {
+    height: 34px;
+    width: 400px;
+    font-size: 19px;
+    line-height: normal !important;
+  }
+
+  .search-button {
+    float: none;
+    margin: 2px 0px 0px 0px
+  }
+  .powered {
+    float: left;
+    width: 100px;
+    margin-left: 20px;
+  }
+  .powered img {
+    margin: 0px 0px 0px 0px;
+    position: relative;
+  }
+
+  .lead {
+    width: 290px;
+    float: left;
+  }
+
 }
 
 .query {
-  background-color: #f9f9f9;
+  background-color: #eeeeee;
   padding: 4px 0px 4px 0px;
   margin: -2px 0px 3px 0px;
   h2 {
     margin-left: 20px;
+  }
+}
+
+
+.pagination {
+
+  color: #525252;
+  background-color: #eeeeee;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
+
+  .nav-container {
+    margin: 0px 0px 0px 14px;
+  }
+
+  h3 {
+    font-weight: normal;
+    position: relative;
+    display: inline;
+  }
+
+  .page-count {
+    color: #959595;
+  }
+
+  a {
+    color: #525252;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #1f1f1f;
+  }
+
+}
+
+.footer {
+  background-color: #9bdba2;
+  height: 35px;
+  color: #1f1f1f;
+  margin-bottom: 10px;
+  margin-left: 0px;
+}
+
+.footer-nav {
+  a {
+    float: left;
+    font-weight: bold;
+    margin: 0px 0px 0px 10px;
+    position: relative;
+    top: 8px;
+  }
+  p {
+    position: relative;
+    top: 8px;
+    float: left;
+    color: #707070;
+    margin: 0px 0px 0px 10px;
+    color: #1f1f1f;
+  }
+}
+
+.footer-info {
+  width: 422px;
+  p {
+    float: right;
+    position: relative;
+    top: 8px;
+  }
+
+  a {
+    font-weight: bold;
+    color: #1f1f1f;
   }
 }
