@@ -1,0 +1,38 @@
+.row
+  - if @tracks.count == 0
+    %p.no-results
+      Couldn't find any tracks.
+  - else
+    - @tracks.each do |track|
+      - if track.stream_url != nil
+        .span3
+          .a-box
+            %a{"data-src" => "#{track.stream_url}?client_id=f837b00cd8d79383183d405b33a8a25d", :href => "#"}
+              .image-content
+                %p{:class => "title-thumb"}
+                  = truncate(track.title, :length => 80)
+                  - if track.playback_count != 0
+                    %span
+                      \-
+                      = track.playback_count
+                      plays
+              - if track.artwork_url == nil
+                %img{:src => "/assets/no-album.png"}
+              - else
+                %img{:src => "#{track.artwork_url.sub("large","t300x300")}"}
+              %img{:src => "/assets/play.png", :class => "playimage"}
+              %img{:src => "/assets/pause.png", :class => "pauseimage"}
+              %img{:src => "/assets/playing.png", :class => "playingimage"}
+          .meta-data{:style => "display:none;"}
+            %p{:class => "track-title"}
+              = truncate(track.title, :length => 60)
+            %p{:class => "play-count"}
+              = track.playback_count
+            %p{:class => "url"}
+              = track.permalink_url
+            - if track.release_day != nil
+              - raw_date = (track.release_day.to_s + "/" + track.release_month.to_s + "/" + track.release_year.to_s)
+              - date = DateTime.strptime(raw_date, '%d/%m/%Y')
+              - timeago = time_ago_in_words(date)
+              %p{:class => "timeago"}
+                = raw_date

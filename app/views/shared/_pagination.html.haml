@@ -1,0 +1,31 @@
+.pagination
+  %span.nav-container
+    - if @current_page.to_i == 2
+      %h3
+        = link_to 'Previous', tracks_path(:search => @query)
+        %span /
+      %h3
+        = link_to 'Next', tracks_path(:search => @query, :page => (@current_page.to_i + 1))
+        %span /
+      %h3
+        = link_to 'First', tracks_path(:search => @query)
+      %h3.page-count
+        %span /
+        = @current_page
+        %span /
+    - elsif @current_page.to_i > 2
+      %h3
+        = link_to 'Previous', tracks_path(:search => @query, :page => (@current_page.to_i - 1))
+        %span /
+      %h3
+        = link_to 'Next', tracks_path(:search => @query, :page => (@current_page.to_i + 1))
+        %span /
+      %h3
+        = link_to 'First', tracks_path(:search => @query)
+      %h3.page-count
+        %span /
+        = @current_page
+        %span /
+    - else
+      %h3
+        = link_to 'Next Page', tracks_path(:search => @query, :page => 2)
